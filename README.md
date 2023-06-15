@@ -12,11 +12,11 @@
 
 ## Ürün İsmi
 
-~~Belirsiz~~
+**Comeon**
 
 ## Product Backlog URL
 
-~~Belirsiz~~
+[Team F-101 Miro Backlog Board](https://miro.com/app/board/uXjVM-3dvyk=/?share_link_id=552765924480)
 
 ## Ürün Açıklaması
 
@@ -38,3 +38,24 @@ Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekler
 - Yeni geldiği şehirlerde yeni insanlarla tanışmak isteyenler
 
 ---
+
+# Sprint 1
+
+- **Sprint içinde tamamlanması planlanan puan**: 26 Puan
+
+**Sprint Review**
+*Alınan kararlar:* Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi. 
+*Sprint Review katılımcıları:* Haktan Öker, Fethi Omur, Saadet Nur Karakaya, Tuğçe Ergün
+
+- **Sprint Retrospective:**
+  - Roller üzerinde güncelleme yapılarak, Product Owner rolünün sahibi değişmiştir.
+  - Gelecek sprint'te takımın daha aktif olması gerektiği vurgulanmıştır. 
+
+---
+
+
+
+
+
+
+
