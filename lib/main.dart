@@ -1,3 +1,4 @@
+import 'package:comeon/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,20 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Comeon',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: Colors.black),
       ),
-      home: const MyHomePage(),
+      home: loginPage(),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
