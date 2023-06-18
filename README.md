@@ -42,14 +42,26 @@ Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekler
 
 # Sprint 1
 
+- **Sprint Notları**: Hem ilk s print olmasındaki tecrübesizlik, hem de ekip üyelerinin final haftası olması sebebiyle bu sprint biraz daha az görev ile tamamlandı. Kalan görevler diğer 2 sprint'te tamamlanacaktır.
+
 - **Sprint içinde tamamlanması planlanan puan**: 26 Puan
 
-**Sprint Review**
-_Alınan kararlar:_ Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi.
-_Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur, Saadet Nur Karakaya, Tuğçe Ergün
+- **Tahmin Mantığı**: Projenin toplam puanı henüz belirlenmemiştir. Çünkü ekip üyelerinden kimse, firebase veya backend işlemleri gibi işlerde daha önceden tecrübeli değil. Bu diğer sprintlerin puanları net şekilde belirlenemedi.
+
+- **Daily Scrum**: Toplantılar zamansal sorunlar nedeniyle ortalam 4 günde bir yapılmıştır. Toplantılarda bitirilen işler hakkında bilgi verilmiştir ve bu bilgiler word dosyasına not alınmıştır. [Sprint 1 Daily Scrum Notları](https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/f101_daily_scrum_sprint_1.docx)
+
+- **Sprint Board Updates**
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/sprint_1_backlog.png" alt="drawing"/>
+
+- **Product Screenshot**
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/login_design.jpeg" alt="drawing"/>
 
 - **Sprint Retrospective:**
   - Roller üzerinde güncelleme yapılarak, Product Owner rolünün sahibi değişmiştir.
   - Gelecek sprint'te takımın daha aktif olması gerektiği vurgulanmıştır.
+
+**Sprint Review**
+_Alınan kararlar:_ Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi.
+_Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur, Saadet Nur Karakaya, Tuğçe Ergün
 
 ---

@@ -1,5 +1,8 @@
 import 'package:comeon/core/project_utilitys.dart';
+import 'package:comeon/pages/register_page.dart';
 import 'package:flutter/material.dart';
+
+import '../core/project_classes.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -45,88 +48,18 @@ class _loginPageState extends State<loginPage> {
                   color: ProjectColors.TextGray,
                 ),
               ),
-              SizedBox(
-                height: size.height * 0.03,
-              ),
-              Container(
-                width: size.width * .9,
-                child: TextField(
-                  controller: _emailController,
-                  style: TextStyle(
-                    color: ProjectColors.MainColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  cursorColor: ProjectColors.MainColor,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: ProjectColors.MainColor,
-                    ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ),
-                    hintText: 'Email',
-                    prefixText: ' ',
-                    hintStyle: TextStyle(color: ProjectColors.TextGray),
-                    // focusColor: Colors.red,
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: BorderSide(
-                        width: 2.0,
-                        color: ProjectColors.MainColor,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: const BorderSide(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.02,
-              ),
-              Container(
-                width: size.width * .9,
-                child: TextField(
-                  obscureText: true,
-                  controller: _passwordController,
-                  style: TextStyle(
-                    color: ProjectColors.MainColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  cursorColor: ProjectColors.MainColor,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.lock_open_outlined,
-                      color: ProjectColors.MainColor,
-                    ),
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ),
-                    hintText: 'Şifre',
-                    prefixText: ' ',
-                    hintStyle: TextStyle(color: ProjectColors.TextGray),
-                    // focusColor: Colors.red,
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: BorderSide(
-                        width: 2.0,
-                        color: ProjectColors.MainColor,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                      borderSide: const BorderSide(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
+              const sizedBoxCreater(height: .03),
+              createInput(
+                  emailController: _emailController,
+                  inputName: 'Email',
+                  iconName: Icons.person,
+                  keyboardType: TextInputType.emailAddress),
+              const sizedBoxCreater(height: .02),
+              createInput(
+                  emailController: _passwordController,
+                  inputName: 'Şifre',
+                  iconName: Icons.lock_open_outlined,
+                  sifreGizle: true),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10.0, 20.0, 15.0),
                 child: Container(
@@ -145,9 +78,7 @@ class _loginPageState extends State<loginPage> {
                   elevation: 4.0,
                   shadowColor: ProjectColors.MainColor.withOpacity(0.4),
                 ),
-                onPressed: () {
-                  // Butona tıklanınca gerçekleşecek işlemler
-                },
+                onPressed: () {},
                 child: const Text(
                   'Giriş Yap',
                   style: TextStyle(
@@ -156,6 +87,56 @@ class _loginPageState extends State<loginPage> {
                     fontSize: 24,
                   ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                child: Text(
+                  'Ya da',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ProjectColors.TextGray,
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Henüz kayıtlı değil misin?'),
+                  const SizedBox(width: 5.0),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          transitionDuration: Duration(milliseconds: 750),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  registerPage(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            var begin = Offset(3.0, 0.0);
+                            var end = Offset.zero;
+                            var curve = Curves.ease;
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+
+                            return SlideTransition(
+                              position: animation.drive(tween),
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Kayıt Ol',
+                      style: TextStyle(
+                        color: ProjectColors.MainColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
