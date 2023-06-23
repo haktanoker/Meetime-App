@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:904014031888:android:784ec00b61f670fca22e95",
+        "mobilesdk_app_id": "1:904014031888:android:d0d959e79610971ca22e95",
         "android_client_info": {
           "package_name": "com.example.comeon"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "904014031888-66614a4ouvkul9ntavl3pdbt7ugrjd8r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.comeon",
-            "certificate_hash": "9f4e47061ef709daab060ffce8109ac79e4c310f"
-          }
-        },
         {
           "client_id": "904014031888-6verg8gu648j6gc3mja85830utnkrgb4.apps.googleusercontent.com",
           "client_type": 3
