@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>904014031888-hojrop8lgesns8892u2dkm50av4eciru.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.904014031888-hojrop8lgesns8892u2dkm50av4eciru</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>904014031888-66614a4ouvkul9ntavl3pdbt7ugrjd8r.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDn5xmYa8b7scd6eY8suM5J0ih18xWMUfU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>904014031888</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.comeon</string>
+	<key>PROJECT_ID</key>
+	<string>comeon-f101</string>
+	<key>STORAGE_BUCKET</key>
+	<string>comeon-f101.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:904014031888:ios:b5c855bf0f3a8b64a22e95</string>
+</dict>
+</plist>
