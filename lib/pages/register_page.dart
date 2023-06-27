@@ -2,6 +2,7 @@ import 'package:comeon/core/project_utilitys.dart';
 import 'package:comeon/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import '../core/project_classes.dart';
+import '../service/auth.dart';
 
 class registerPage extends StatefulWidget {
   const registerPage({super.key});
@@ -11,14 +12,16 @@ class registerPage extends StatefulWidget {
 }
 
 class _registerPageState extends State<registerPage> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   final TextEditingController _againpasswordController =
       TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  String? selectedGender;
-  String? selectedCity;
+  String? _selectedGender;
+  String? _selectedCity;
+
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class _registerPageState extends State<registerPage> {
                             transitionDuration: Duration(milliseconds: 750),
                             pageBuilder: (context, animation,
                                     secondaryAnimation) =>
-                                loginPage(), // Geçiş yapılacak hedef sayfanın adını buraya yazın
+                                loginPage(), // Geçiş yapılacak hedef sayfanın adı
                             transitionsBuilder: (context, animation,
                                 secondaryAnimation, child) {
                               var begin = Offset(-3.0, 0.0);
@@ -100,7 +103,7 @@ class _registerPageState extends State<registerPage> {
 // İnputlar Başlangıç
                 // Ad Soyad
                 createInput(
-                  emailController: _nameController,
+                  Controller: _nameController,
                   inputName: 'Ad Soyad',
                   iconName: Icons.person,
                   keyboardType: TextInputType.name,
@@ -108,7 +111,7 @@ class _registerPageState extends State<registerPage> {
                 ),
                 // Email
                 createInput(
-                  emailController: _emailController,
+                  Controller: _emailController,
                   inputName: 'Email',
                   iconName: Icons.mail_outline_outlined,
                   keyboardType: TextInputType.emailAddress,
@@ -116,7 +119,7 @@ class _registerPageState extends State<registerPage> {
                 ),
                 // Şifre
                 createInput(
-                  emailController: _passwordController,
+                  Controller: _passwordController,
                   inputName: 'Şifre',
                   iconName: Icons.lock_open_outlined,
                   sifreGizle: true,
@@ -124,7 +127,7 @@ class _registerPageState extends State<registerPage> {
                 ),
                 // Şifre Yeniden
                 createInput(
-                  emailController: _againpasswordController,
+                  Controller: _againpasswordController,
                   inputName: 'Şifre Yeniden',
                   iconName: Icons.lock_open_outlined,
                   sifreGizle: true,
@@ -132,7 +135,7 @@ class _registerPageState extends State<registerPage> {
                 ),
                 // Telefon
                 createInput(
-                  emailController: _phoneController,
+                  Controller: _phoneController,
                   inputName: 'Telefon (5xx xxx xxxx)',
                   iconName: Icons.phone_android_outlined,
                   keyboardType: TextInputType.phone,
@@ -148,11 +151,11 @@ class _registerPageState extends State<registerPage> {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: DropdownButton<String>(
-                          value: selectedGender,
+                          value: _selectedGender,
                           hint: Text('Cinsiyet'),
                           onChanged: (String? newValue) {
                             setState(() {
-                              selectedGender = newValue;
+                              _selectedGender = newValue;
                             });
                           },
                           items: <String>['Erkek', 'Kadın']
@@ -169,7 +172,7 @@ class _registerPageState extends State<registerPage> {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: DropdownButton<String>(
-                          value: selectedCity,
+                          value: _selectedCity,
                           hint: Text('Şehir'),
                           items: cityList.map((String city) {
                             return DropdownMenuItem<String>(
@@ -179,7 +182,7 @@ class _registerPageState extends State<registerPage> {
                           }).toList(),
                           onChanged: (String? newValue) {
                             setState(() {
-                              selectedCity = newValue;
+                              _selectedCity = newValue;
                             });
                           },
                         ),
@@ -192,26 +195,43 @@ class _registerPageState extends State<registerPage> {
 // İnputlar Bitiş
                 const sizedBoxCreater(height: 0.05),
 // Kayıt Ol Butonu Başlangıç
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: ProjectColors.DarkMainColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 15, horizontal: 50),
-                    elevation: 4.0,
-                    shadowColor: ProjectColors.MainColor.withOpacity(0.4),
-                  ),
-                  onPressed: () {
-                    // Butona tıklanınca gerçekleşecek işlemler
+                InkWell(
+                  onTap: () {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => loginPage(),
+                    //     ));
                   },
-                  child: const Text(
-                    'Kayıt Ol',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ProjectColors.DarkMainColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 50),
+                      elevation: 4.0,
+                      shadowColor: ProjectColors.MainColor.withOpacity(0.4),
+                    ),
+                    onPressed: () {
+                      AuthService().signUp(
+                          name: _nameController.text,
+                          email: _emailController.text,
+                          password: _passwordController.text);
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => loginPage(),
+                      //     ));
+                    },
+                    child: const Text(
+                      'Kayıt Ol',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
                     ),
                   ),
                 ),

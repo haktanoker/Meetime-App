@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: Colors.black),
       ),
-      home: registerPage(),
+      home: loginPage(),
     );
   }
 }

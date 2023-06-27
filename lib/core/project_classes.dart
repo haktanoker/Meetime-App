@@ -6,16 +6,16 @@ import 'package:flutter/services.dart';
 class createInput extends StatelessWidget {
   const createInput({
     Key? key,
-    required TextEditingController emailController,
+    required TextEditingController Controller,
     required this.inputName,
     required this.iconName,
     this.keyboardType,
     this.maxKarakter,
     this.sifreGizle = false,
-  })  : _emailController = emailController,
+  })  : _InputController = Controller,
         super(key: key);
 
-  final TextEditingController _emailController;
+  final TextEditingController _InputController;
   final String inputName;
   final TextInputType? keyboardType;
   final IconData iconName;
@@ -30,7 +30,7 @@ class createInput extends StatelessWidget {
           width: (MediaQuery.of(context).size).width * .9,
           child: TextField(
             obscureText: sifreGizle,
-            controller: _emailController,
+            controller: _InputController,
             inputFormatters: [
               LengthLimitingTextInputFormatter(maxKarakter),
               FilteringTextInputFormatter.deny(RegExp('[!?"\'+-]')),
