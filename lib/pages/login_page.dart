@@ -1,5 +1,6 @@
 import 'package:comeon/core/project_utilitys.dart';
 import 'package:comeon/pages/register_page.dart';
+import 'package:comeon/service/auth.dart';
 import 'package:flutter/material.dart';
 
 import '../core/project_classes.dart';
@@ -15,6 +16,8 @@ class _loginPageState extends State<loginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -26,10 +29,13 @@ class _loginPageState extends State<loginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+// Logo Başlangıç
               Container(
                 width: size.width * .5,
                 child: Image.asset('assets/images/falci.png'),
               ),
+// Logo Bitiş
+// Karşılama Yazısı Başlangıç
               Padding(
                 padding: ProjectPaddings().v15,
                 child: const Text(
@@ -48,18 +54,24 @@ class _loginPageState extends State<loginPage> {
                   color: ProjectColors.TextGray,
                 ),
               ),
+// Karşılama Yazısı Bitiş
               const sizedBoxCreater(height: .03),
+// Email İnput Başlangıç
               createInput(
-                  emailController: _emailController,
+                  Controller: _emailController,
                   inputName: 'Email',
                   iconName: Icons.person,
                   keyboardType: TextInputType.emailAddress),
+// Email İnput Bitiş
               const sizedBoxCreater(height: .02),
+// Şifre İnput Başlangıç
               createInput(
-                  emailController: _passwordController,
+                  Controller: _passwordController,
                   inputName: 'Şifre',
                   iconName: Icons.lock_open_outlined,
                   sifreGizle: true),
+// Şifre İnput Bitiş
+// Şifremi Unuttum Başlangıç
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10.0, 20.0, 15.0),
                 child: Container(
@@ -67,27 +79,42 @@ class _loginPageState extends State<loginPage> {
                   child: Text('Şifremi Unuttum', textAlign: TextAlign.end),
                 ),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: ProjectColors.DarkMainColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40.0),
+// Şifremi Unuttum Bitiş
+// Giriş Butonu Başlangıç
+              InkWell(
+                onTap: () {
+                  // _authService
+                  //     .signIn(_emailController.text, _passwordController.text)
+                  //     .then((value) {
+                    // return Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => registerPage()));
+                  // });
+                },
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ProjectColors.DarkMainColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 50),
+                    elevation: 4.0,
+                    shadowColor: ProjectColors.MainColor.withOpacity(0.4),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                  elevation: 4.0,
-                  shadowColor: ProjectColors.MainColor.withOpacity(0.4),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  'Giriş Yap',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                  onPressed: () {},
+                  child: const Text(
+                    'Giriş Yap',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
                   ),
                 ),
               ),
+// Giriş Butonu Bitiş
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Text(
@@ -98,6 +125,7 @@ class _loginPageState extends State<loginPage> {
                   ),
                 ),
               ),
+// Kayıt Ol Yazısı Başlangıç
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -137,7 +165,8 @@ class _loginPageState extends State<loginPage> {
                     ),
                   ),
                 ],
-              )
+              ),
+// Kayıt Ol Yazısı Bitiş
             ],
           ),
         ),
