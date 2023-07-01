@@ -21,8 +21,6 @@ class _registerPageState extends State<registerPage> {
   String? _selectedGender;
   String? _selectedCity;
 
-  AuthService _authService = AuthService();
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -35,72 +33,104 @@ class _registerPageState extends State<registerPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-// Geri Dönüş Butonu Başlangıç
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+// Geri Dönüş Butonu ve Hesap Oluştur Yazısı Başlangıç
+                Stack(
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            transitionDuration: Duration(milliseconds: 750),
-                            pageBuilder: (context, animation,
-                                    secondaryAnimation) =>
-                                loginPage(), // Geçiş yapılacak hedef sayfanın adı
-                            transitionsBuilder: (context, animation,
-                                secondaryAnimation, child) {
-                              var begin = Offset(-3.0, 0.0);
-                              var end = Offset.zero;
-                              var curve = Curves.ease;
+// Geri Dönüş Butonu Başlangıç
+                    Positioned(
+                      left: 0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              transitionDuration: Duration(milliseconds: 1250),
+                              pageBuilder: (context, animation,
+                                      secondaryAnimation) =>
+                                  loginPage(), // Geçiş yapılacak hedef sayfanın adı
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                var begin = Offset(-3.0, 0.0);
+                                var end = Offset.zero;
+                                var curve = Curves.ease;
 
-                              var tween = Tween(begin: begin, end: end)
-                                  .chain(CurveTween(curve: curve));
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
 
-                              return SlideTransition(
-                                position: animation.drive(tween),
-                                child: child,
-                              );
-                            },
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        shape: const CircleBorder(),
-                        backgroundColor: Colors.transparent,
-                        elevation: 0,
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 9.0),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.black,
+                                return SlideTransition(
+                                  position: animation.drive(tween),
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          shape: const CircleBorder(),
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
                         ),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 9.0),
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+// Hesap Oluştur Yazısı Başlangıç
+                    Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Hesap Oluştur',
+                            style: TextStyle(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            'Katılmak için lütfen bilgilerini gir',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: ProjectColors.TextGray,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-// Geri Dönüş Butonu Bitiş
-// Hesap Oluştur Yazıları Başlangıç
-                const Text(
-                  'Hesap Oluştur',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                Text(
-                  'Katılmak için lütfen bilgilerini gir',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: ProjectColors.TextGray,
-                  ),
-                ),
-// Hesap Oluştur Yazıları Bitiş
-                const sizedBoxCreater(height: 0.05),
+// Geri Dönüş Butonu ve Hesap Oluştur Yazısı Bitiş
+                sizedBoxCreator(context, 0.07),
 // İnputlar Başlangıç
+                // Fotoğraf Ekle
+                GestureDetector(
+                  onTap: () {},
+                  child: Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage:
+                            AssetImage('assets/images/user_icon.png'),
+                        backgroundColor: ProjectColors.DarkMainColor,
+                      ),
+                      Positioned(
+                        bottom: -13,
+                        right: -13,
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.add_a_photo),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                sizedBoxCreator(context, 0.04),
                 // Ad Soyad
                 createInput(
                   Controller: _nameController,
@@ -136,7 +166,7 @@ class _registerPageState extends State<registerPage> {
                 // Telefon
                 createInput(
                   Controller: _phoneController,
-                  inputName: 'Telefon (5xx xxx xxxx)',
+                  inputName: 'Telefon (5xxxxxxxxx)',
                   iconName: Icons.phone_android_outlined,
                   keyboardType: TextInputType.phone,
                   maxKarakter: 10,
@@ -193,64 +223,66 @@ class _registerPageState extends State<registerPage> {
                 ),
                 // Cinsiyet ve Şehir Seçimi Bitiş
 // İnputlar Bitiş
-                const sizedBoxCreater(height: 0.05),
+                sizedBoxCreator(context, 0.05),
 // Kayıt Ol Butonu Başlangıç
-                InkWell(
-                  onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => loginPage(),
-                    //     ));
-                  },
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ProjectColors.DarkMainColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 50),
-                      elevation: 4.0,
-                      shadowColor: ProjectColors.MainColor.withOpacity(0.4),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ProjectColors.DarkMainColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0),
                     ),
-                    onPressed: () {
-                      AuthService().signUp(
-                          name: _nameController.text,
-                          email: _emailController.text,
-                          password: _passwordController.text);
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => loginPage(),
-                      //     ));
-                    },
-                    child: const Text(
-                      'Kayıt Ol',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 50),
+                    elevation: 4.0,
+                    shadowColor: ProjectColors.MainColor.withOpacity(0.4),
+                  ),
+                  onPressed: () {
+                    inputControls(context);
+                  },
+                  child: const Text(
+                    'Kayıt Ol',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
                     ),
                   ),
                 ),
 // Kayıt Ol Butonu Bitiş
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: Text(
-                    'Ya da',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: ProjectColors.TextGray,
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+// İnput Kontrol Şartları
+  void inputControls(BuildContext context) {
+    if (_nameController.text == '' ||
+        _emailController.text == '' ||
+        _passwordController.text == '' ||
+        _againpasswordController.text == '' ||
+        _phoneController.text == '' ||
+        _selectedGender == null ||
+        _selectedCity == null) {
+      flutterToastCreater(context, 'Lütfen bilgilerinizi eksiksiz girin');
+    }
+    if (_passwordController.text != _againpasswordController.text) {
+      flutterToastCreater(context, 'Şifreler eşleşmiyor');
+    }
+    if (_phoneController.text.replaceAll(' ', '').length != 10) {
+      flutterToastCreater(context, 'Numaranız 10 haneli olmalıdır');
+    } else {
+      AuthService().signUp(
+        context: context,
+        name: _nameController.text,
+        email: _emailController.text.replaceAll(' ', ''),
+        password: _passwordController.text,
+        cinsiyet: _selectedGender.toString(),
+        sehir: _selectedCity.toString(),
+      );
+      flutterToastCreater(context, 'Kayıt başarılı');
+    }
   }
 }

@@ -13,7 +13,7 @@
 
 ## Ürün İsmi
 
-**Comeon**
+**Meetime**
 
 ## Product Backlog URL
 
@@ -42,13 +42,13 @@ Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekler
 
 # Sprint 1
 
-- **Sprint Notları**: Hem ilk s print olmasındaki tecrübesizlik, hem de ekip üyelerinin final haftası olması sebebiyle bu sprint biraz daha az görev ile tamamlandı. Kalan görevler diğer 2 sprint'te tamamlanacaktır.
+- **Sprint Notları**: Hem ilk sprint olmasındaki tecrübesizlik, hem de ekip üyelerinin final haftası olması sebebiyle bu sprint biraz daha az görev ile tamamlandı. Kalan görevler diğer 2 sprint'te tamamlanacaktır.
 
 - **Sprint içinde tamamlanması planlanan puan**: 26 Puan
 
-- **Tahmin Mantığı**: Projenin toplam puanı henüz belirlenmemiştir. Çünkü ekip üyelerinden kimse, firebase veya backend işlemleri gibi işlerde daha önceden tecrübeli değil. Bu diğer sprintlerin puanları net şekilde belirlenemedi.
+- **Tahmin Mantığı**: Projenin toplam puanı 138'dir. Sprint'ler ilerledikçe görevlerin zorluğu arttığından dolayı her sprint'te tamamlanması gereken puan biraz daha artmaktadır.
 
-- **Daily Scrum**: Toplantılar zamansal sorunlar nedeniyle ortalam 4 günde bir yapılmıştır. Toplantılarda bitirilen işler hakkında bilgi verilmiştir ve bu bilgiler word dosyasına not alınmıştır. [Sprint 1 Daily Scrum Notları](https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/f101_daily_scrum_sprint_1.docx)
+- **Daily Scrum**: Toplantılar zamansal sorunlar nedeniyle ortalama 4 günde bir yapılmıştır. Toplantılarda bitirilen işler hakkında bilgi verilmiştir ve bu bilgiler word dosyasına not alınmıştır. [Sprint 1 Daily Scrum Notları](https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/f101_daily_scrum_sprint_1.docx)
 
 - **Sprint Board Updates**
   <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/sprint_1_backlog.png" alt="drawing"/>
@@ -61,7 +61,35 @@ Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekler
   - Gelecek sprint'te takımın daha aktif olması gerektiği vurgulanmıştır.
 
 **Sprint Review**
-_Alınan kararlar:_ Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi.
-_Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur, Saadet Nur Karakaya, Tuğçe Ergün
+- _Alınan kararlar:_ Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi.
+- _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur, Saadet Nur Karakaya, Tuğçe Ergün
+
+---
+
+# Sprint 2
+
+- **Sprint Notları**: Hbu sprint'te Kurban Bayramı ve çeşitli firebase hatalarıyla uğraşıldığı için daha az iş yapılmıştır.
+
+- **Sprint içinde tamamlanması planlanan puan**: 55 Puan
+
+- **Tahmin Mantığı**: Projenin toplam puanı 138'dir. Sprint'ler ilerledikçe görevlerin zorluğu arttığından dolayı her sprint'te tamamlanması gereken puan biraz daha artmaktadır.
+
+- **Daily Scrum**: Toplantılar zamansal sorunlar nedeniyle ortalama 5 günde bir yapılmıştır. Toplantılarda bitirilen işler hakkında bilgi verilmiştir ve bu bilgiler word dosyasına not alınmıştır.
+[Sprint 1 Daily Scrum Notları](https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/f101_daily_scrum_sprint_2.docx)
+
+- **Sprint Board Updates**
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/sprint_2_backlog.png" alt="drawing"/>
+
+- **Product Screenshot**
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/login_design_new.png" alt="drawing"/>
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/register_design.png" alt="drawing"/>
+
+- **Sprint Retrospective:**
+  - Uygulamanın giriş bölümü bitirildiği için kalan kısımlara daha çok yoğunlaşılması gerektiği belirtilmiştir.
+  - Gelecek sprint'te takımın daha aktif olması gerektiği vurgulanmıştır.
+
+**Sprint Review**
+- _Alınan kararlar:_ Uygulamanın logosu ve adı değiştirildi. Vakit sıkıntıları yüzünden bazı fikirlerden vazgeçildi.
+- _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur
 
 ---
