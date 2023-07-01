@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "904014031888-6verg8gu648j6gc3mja85830utnkrgb4.apps.googleusercontent.com",
+          "client_id": "904014031888-ehi3dm0umdinu8lgkg2kjum6aolbujsf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.comeon",
+            "certificate_hash": "484fe7829250f87df17b3f050a1eaab0aa866096"
+          }
+        },
+        {
+          "client_id": "904014031888-fbhdtkbog1qconpufr026ktt1ke33nvl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +37,13 @@
             {
               "client_id": "904014031888-6verg8gu648j6gc3mja85830utnkrgb4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "904014031888-hojrop8lgesns8892u2dkm50av4eciru.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.comeon"
+              }
             }
           ]
         }

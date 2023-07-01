@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ProjectColors {
-  static Color MainColor = Color(0xFF1355BF);
-  static Color DarkMainColor = Color(0xFF133ABB);
+  static Color MainColor = const Color(0xFF1355BF);
+  static Color DarkMainColor = const Color(0xFF133ABB);
   static Color TextGray = const Color(0x88000000);
+  static Color White = const Color(0xFFFFFFFF);
 }
 
 class ProjectPaddings {
   final v15 = const EdgeInsets.symmetric(vertical: 15);
+  final a5 = const EdgeInsets.all(5.0);
+  final a10 = const EdgeInsets.all(10.0);
 }
 
 List<String> cityList = [

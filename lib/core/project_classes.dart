@@ -1,6 +1,7 @@
 import 'package:comeon/core/project_utilitys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // Login & Register Page İnput Creater Class
 class createInput extends StatelessWidget {
@@ -69,25 +70,26 @@ class createInput extends StatelessWidget {
             ),
           ),
         ),
-        const sizedBoxCreater(height: .03),
+        sizedBoxCreator(context, 0.03),
       ],
     );
   }
 }
 
 // Sized Box Creater Class
-class sizedBoxCreater extends StatelessWidget {
-  const sizedBoxCreater({
-    Key? key,
-    required this.height,
-  }) : super(key: key);
+Widget sizedBoxCreator(BuildContext context, double height,
+    {double width = 0}) {
+  return SizedBox(
+    height: (MediaQuery.of(context).size).width * height,
+    width: width,
+  );
+}
 
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: (MediaQuery.of(context).size).width * height,
-    );
-  }
+// Fluttertoast Creater Class
+void flutterToastCreater(BuildContext context, String msg, {int duration = 3}) {
+  Fluttertoast.showToast(
+    msg: msg,
+    toastLength: duration == 0 ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT,
+    timeInSecForIosWeb: duration,
+  );
 }
