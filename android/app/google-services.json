@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "904014031888-ehi3dm0umdinu8lgkg2kjum6aolbujsf.apps.googleusercontent.com",
+          "client_id": "904014031888-im8tq5i1chpo2127vjkthm1leasim5ic.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.comeon",
-            "certificate_hash": "484fe7829250f87df17b3f050a1eaab0aa866096"
+            "certificate_hash": "dd016870a343a1b7554c437d673d770588d503c2"
           }
         },
         {

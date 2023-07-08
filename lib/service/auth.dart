@@ -4,57 +4,71 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:comeon/core/project_classes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:uuid/uuid.dart';
 
 class AuthService {
   final userCollection = FirebaseFirestore.instance.collection("users");
   final firebaseAuth = FirebaseAuth.instance;
 
 // Kayıt Ol Başlangıç
-  Future<void> signUp({
+  Future<void> signUp(
+      {required BuildContext context,
+      required String name,
+      required String email,
+      required String password,
+      required String cinsiyet,
+      required String sehir,
+      required int dogumTarihi,
+      required String avatar}) async {
+    try {
+      final UserCredential userCredential = await firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      if (userCredential.user != null) {
+        _registerUser(
+          context: context,
+          name: name,
+          email: email,
+          password: password,
+          cinsiyet: cinsiyet,
+          sehir: sehir,
+          dogumTarihi: dogumTarihi,
+          avatar: avatar,
+        );
+        return;
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        flutterToastCreater(context, 'Bu mail adresi zaten kullanılıyor');
+        return;
+      }
+    }
+  }
+
+// Bilgileri DB'ye kaydetmek
+  Future<void> _registerUser({
     required BuildContext context,
     required String name,
     required String email,
     required String password,
     required String cinsiyet,
     required String sehir,
+    required int dogumTarihi,
+    required String avatar,
   }) async {
-    try {
-      final UserCredential userCredential = await firebaseAuth
-          .createUserWithEmailAndPassword(email: email, password: password);
-      if (userCredential.user != null) {
-        _registerUser(
-            name: name,
-            email: email,
-            password: password,
-            cinsiyet: cinsiyet,
-            sehir: sehir);
-        flutterToastCreater(context, 'Kayıt başarıyla oluşturuldu!');
-      }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'email-already-in-use') {
-        flutterToastCreater(context, 'Bu mail adresi zaten kullanılıyor');
-      }
-    }
-  }
-
-  Future<void> _registerUser({
-    required String name,
-    required String email,
-    required String password,
-    required String cinsiyet,
-    required String sehir,
-  }) async {
+    String uuid = Uuid().v4(); // UUID oluşturma
     await userCollection.doc().set({
-      'userName': name,
+      'Name': name,
       'email': email,
       'password': password,
       'cinsiyet': cinsiyet,
       'sehir': sehir,
+      'user_id': uuid,
+      'yas': dogumTarihi,
+      'resim': avatar,
     });
-
-    // Kayıt Ol Bitiş
+    flutterToastCreater(context, 'Kayıt başarıyla oluşturuldu!');
   }
+  // Kayıt Ol Bitiş
 
   // Giriş Yap Başlangıç
   Future<void> signIn(
@@ -76,19 +90,4 @@ class AuthService {
       }
     }
   }
-
-// google girişi
-  // Future<User?> signInWithGoogle() async {
-  //   // Oturum açma sürecini başlat
-  //   final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
-  //   // Bilgileri al
-  //   final GoogleSignInAuthentication gAuth = await gUser!.authentication;
-  //   // Kullanıcı nesnesini oluştur
-  //   final credential = GoogleAuthProvider.credential(
-  //       accessToken: gAuth.accessToken, idToken: gAuth.idToken);
-  //   // Kullanıcı girişi yap
-  //   final UserCredential userCredential =
-  //       await firebaseAuth.signInWithCredential(credential);
-  //   return userCredential.user;
-  // }
 }
