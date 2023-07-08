@@ -1,3 +1,6 @@
+import 'package:comeon/pages/community.dart';
+import 'package:comeon/pages/create_post.dart';
+import 'package:comeon/pages/home_router_page.dart';
 import 'package:comeon/pages/login_page.dart';
 import 'package:comeon/pages/register_page.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +23,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Comeon',
+      title: 'Meetime',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: Colors.black),
       ),
-      home: loginPage(),
+      home: const homeRouterPage(),
     );
   }
 }
