@@ -37,16 +37,16 @@ class signInput extends StatelessWidget {
               FilteringTextInputFormatter.deny(RegExp('[!?"\'+-]')),
             ],
             style: TextStyle(
-              color: ProjectColors.DarkMainColor,
+              color: ProjectColors.DarkBlue,
               fontWeight: FontWeight.bold,
             ),
-            cursorColor: ProjectColors.DarkMainColor,
+            cursorColor: ProjectColors.DarkBlue,
             keyboardType:
                 keyboardType, //TextInputType.emailAddress şeklinde tanımlanıyor
             decoration: InputDecoration(
               prefixIcon: Icon(
                 iconName,
-                color: ProjectColors.DarkMainColor,
+                color: ProjectColors.DarkBlue,
               ),
               filled: true,
               fillColor: ProjectColors.White,
@@ -60,7 +60,7 @@ class signInput extends StatelessWidget {
                 borderRadius: BorderRadius.circular(40.0),
                 borderSide: BorderSide(
                   width: 2.0,
-                  color: ProjectColors.DarkMainColor,
+                  color: ProjectColors.DarkBlue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
@@ -122,7 +122,6 @@ class _CreateInputState extends State<CreateInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
       child: Column(
         children: [
           Row(
@@ -130,11 +129,11 @@ class _CreateInputState extends State<CreateInput> {
             children: [
               Text(
                 widget.inputName,
-                style: TextStyle(fontSize: 18, color: ProjectColors.White),
+                style: TextStyle(fontSize: 18, color: ProjectColors.DarkBlue),
               ),
               Text(
                 '${widget._inputController.text.length}/${widget.maxKarakter ?? 0}',
-                style: TextStyle(fontSize: 12, color: ProjectColors.White),
+                style: TextStyle(fontSize: 12, color: ProjectColors.DarkBlue),
               ),
             ],
           ),
@@ -144,12 +143,13 @@ class _CreateInputState extends State<CreateInput> {
             maxLines: widget.maxLine,
             inputFormatters: [
               LengthLimitingTextInputFormatter(widget.maxKarakter),
-              FilteringTextInputFormatter.deny(RegExp('[!?"\'+-]')),
+              FilteringTextInputFormatter.deny(RegExp('[!?"+-]')),
+              // FilteringTextInputFormatter.deny(RegExp('[!?"\'+-]')),
             ],
             style: TextStyle(
               color: ProjectColors.Black,
             ),
-            cursorColor: ProjectColors.DarkMainColor,
+            cursorColor: ProjectColors.DarkBlue,
             decoration: InputDecoration(
               contentPadding: ProjectPaddings().a5,
               border: InputBorder.none,
@@ -159,9 +159,17 @@ class _CreateInputState extends State<CreateInput> {
               prefixText: ' ',
               hintStyle: TextStyle(color: ProjectColors.TextGray),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(0),
+                borderRadius: BorderRadius.circular(0.0),
                 borderSide: BorderSide(
-                  color: ProjectColors.White,
+                  color: ProjectColors.DarkBlue,
+                  width: 2.0,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(0.0),
+                borderSide: BorderSide(
+                  color: ProjectColors.DarkBlue,
+                  width: 2.0,
                 ),
               ),
             ),
@@ -273,5 +281,14 @@ class textCreater extends StatelessWidget {
         height: textHeight,
       ),
     );
+  }
+}
+
+// Belirlenen karakter sayısından uzun yazıların sonunda 3 nokta koyma
+String yaziyiKes(String name, int maxLength) {
+  if (name.length <= maxLength) {
+    return name;
+  } else {
+    return '${name.substring(0, maxLength)}...';
   }
 }

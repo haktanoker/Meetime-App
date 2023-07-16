@@ -1,4 +1,4 @@
-# Takım İsmi
+## Takım İsmi
 
 > **Team F-101**
 
@@ -6,8 +6,9 @@
 
 - **Haktan Öker** - Scrum Master
 - **Fethi Omur** - Product Owner
-- **Saadet Nur Karakaya** - Developer
-- **Tuğçe Ergün** - Developer
+
+## Jüriye Not
+- Uygulama içi sohbet özelliği getirilecekti ve topluluk sekmesi için "Gerçekleşmiş Etkinlikler" bölümü eklenecekti. Bu sayede kullanıcıların; katıldıkları etkinliklere yorum yapma, video ve fotoğraf paylaşma imkanı olacaktı. Bilgi ve vakit yetersizliği sebebiyle eklenemediler. İlerisi için eklenmesi planlanmaktadır. 
 
 # Ürün İle İlgili Bilgiler
 
@@ -21,14 +22,14 @@
 
 ## Ürün Açıklaması
 
-Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekleri bir platform sunar. Kullanıcılar, İngilizce öğrenmek, kahve içmek veya kendini herhangi bir konuda geliştirmek gibi aktiviteler için ilanlar oluşturabilir ve diğer kullanıcılarla bir araya gelebilirler. Uygulama, kullanıcılara konum tabanlı filtreleme seçenekleri sunar. Bu sayede yalnızca kendi çevrenizdeki ilanları görürsünüz. Ayrıca topluluk buluşmaları için de bir bölüm içerir. Bu sayede yakın çevrenizdeki büyük etkinliklerden haberdar olabilirsiniz. Buluşma sonrasında kullanıcılar karşılarındaki kişiyi değerlendirmek için isteğe bağlı anonim yorumlar yapabilir. Buluşma öncesinde, ilanda belirtilen tarihi de otomatik olarak takvime ekleyebilirler.
+Bu uygulama, kullanıcıların çalışma arkadaşı bulabilecekleri bir ortam sunar. Kullanıcılar; ingilizce öğrenmek, kahve içmek veya kendini herhangi bir konuda geliştirmek gibi aktiviteler için ilanlar oluşturabilir ve diğer kullanıcılarla bir araya gelebilirler. Ayrıca topluluk buluşmaları için de bir bölüm içerir. Bu sayede yakın çevrenizdeki büyük etkinliklerden haberdar olabilirsiniz.
 
 ## Ürün Özellikleri
 
 - Kullanıcılara kayıt ekranında google,facebook,email gibi farklı kayıt seçenekleri sunulur
-- Ana sayfada, kullanıcının ilgisini çekebilecek özel ilanlar bulunur
-- Buluşma tarihi otomatik olarak takvime entegre edilir
-- Kullanıcılar kendi konumlarına yakın ilanları görebilir
+- Ana sayfada çeşitli ilanlar bulunur
+- Kullanıcılar seçtikleri konuma ait ilanları görebilir
+- Diledikleri ilana başvuru yaparak çalışma arkadaşı bulabilirler
 
 ## Hedef Kitle
 
@@ -60,15 +61,15 @@ Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekler
   - Roller üzerinde güncelleme yapılarak, Product Owner rolünün sahibi değişmiştir.
   - Gelecek sprint'te takımın daha aktif olması gerektiği vurgulanmıştır.
 
-**Sprint Review**
-- _Alınan kararlar:_ Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi.
-- _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur, Saadet Nur Karakaya, Tuğçe Ergün
+- **Sprint Review**
+  - _Alınan kararlar:_ Uygulamaya dair temel fikirler belirlendi. Uygulamanın işleyişi ve isim, logo gibi detaylar netleştirildi.
+  - _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur
 
 ---
 
 # Sprint 2
 
-- **Sprint Notları**: Hbu sprint'te Kurban Bayramı ve çeşitli firebase hatalarıyla uğraşıldığı için daha az iş yapılmıştır.
+- **Sprint Notları**: Bu sprint'te Kurban Bayramı ve çeşitli firebase hatalarıyla uğraşıldığı için daha az iş yapılmıştır.
 
 - **Sprint içinde tamamlanması planlanan puan**: 55 Puan
 
@@ -88,8 +89,35 @@ Bu uygulama, kullanıcıların yanlarına birilerini ararken ilan açabilecekler
   - Uygulamanın giriş bölümü bitirildiği için kalan kısımlara daha çok yoğunlaşılması gerektiği belirtilmiştir.
   - Gelecek sprint'te takımın daha aktif olması gerektiği vurgulanmıştır.
 
-**Sprint Review**
-- _Alınan kararlar:_ Uygulamanın logosu ve adı değiştirildi. Vakit sıkıntıları yüzünden bazı fikirlerden vazgeçildi.
-- _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur
+- **Sprint Review**
+  - _Alınan kararlar:_ Uygulamanın logosu ve adı değiştirildi. Vakit sıkıntıları yüzünden bazı fikirlerden vazgeçildi.
+  - _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur
 
 ---
+
+# Sprint 3
+
+- **Sprint Notları**: Bu sprint'te, önceki sprintlerde yetişmeyen konular da yapıldığı için iş yükü biraz daha fazla olmuştur.
+
+- **Sprint içinde tamamlanması planlanan puan**: 57 Puan
+
+- **Tahmin Mantığı**: Projenin toplam puanı 138'dir. Sprint'ler ilerledikçe görevlerin zorluğu arttığından dolayı her sprint'te tamamlanması gereken puan biraz daha artmaktadır.
+
+- **Daily Scrum**: Toplantılar zamansal sorunlar nedeniyle ortalama 5 günde bir yapılmıştır. Toplantılarda bitirilen işler hakkında bilgi verilmiştir ve bu bilgiler word dosyasına not alınmıştır.
+[Sprint 1 Daily Scrum Notları](https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/f101_daily_scrum_sprint_3.docx)
+
+- **Sprint Board Updates**
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/sprint_3_backlog.png" alt="drawing"/>
+
+- **Product Screenshot**
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/home_design.jpg" alt="drawing"/>
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/profile_design.jpg" alt="drawing"/>
+  <img src="https://github.com/haktanoker/goua-f101/blob/haktan/bootcamp%20dosyaları/community_design.jpg" alt="drawing"/>
+
+- **Sprint Retrospective:**
+  - Projenin güzel bir sonuca ulaştığı fikrine varıldı
+  - Gelecek projelerde hatalara dikkat edilmeye özen gösterilecek
+
+- **Sprint Review**
+  - _Alınan kararlar:_ Uygulamada bazı kısımları eklememeye karar verildi. 
+  - _Sprint Review katılımcıları:_ Haktan Öker, Fethi Omur

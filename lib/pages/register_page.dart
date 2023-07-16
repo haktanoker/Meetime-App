@@ -217,70 +217,72 @@ class _registerPageState extends State<registerPage> {
                         ),
                       ),
                       // Şehir Seçimi Bitiş
-                      // Doğum Tarihi Seçimi Başlangıç
-                      Container(
-                        padding: EdgeInsets.only(bottom: 8),
-                        width: 150,
-                        child: TextFormField(
-                          controller: _birthdateController,
-                          readOnly: true,
-                          decoration: const InputDecoration(
-                            labelText: 'Doğum Tarihi',
-                            prefixIcon: Icon(
-                              Icons.calendar_today,
-                            ),
-                            contentPadding: EdgeInsets.only(bottom: -35),
-                          ),
-                          onTap: () {
-                            showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(1950),
-                              lastDate: DateTime.now(),
-                              builder: (BuildContext context, Widget? child) {
-                                return Theme(
-                                  data: ThemeData.light().copyWith(
-                                    colorScheme: ColorScheme.light(
-                                        primary: ProjectColors.DarkMainColor),
-                                    buttonTheme: ButtonThemeData(
-                                        textTheme: ButtonTextTheme.primary),
-                                  ),
-                                  child: child!,
-                                );
-                              },
-                            ).then(
-                              (selectedDate) {
-                                if (selectedDate != null) {
-                                  setState(
-                                    () {
-                                      _birthdateController.text =
-                                          '${selectedDate.year}-${selectedDate.month.toString().padLeft(2, '0')}';
-                                    },
-                                  );
-                                }
-                              },
-                            );
-                          },
-                        ),
-                      ),
-                      // Doğum Tarihi Seçimi Bitiş
                     ],
                   ),
                 ),
+                sizedBoxCreator(context, 0.02),
+                // Doğum Tarihi Seçimi Başlangıç
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  width: 150,
+                  child: TextFormField(
+                    controller: _birthdateController,
+                    readOnly: true,
+                    decoration: const InputDecoration(
+                      labelText: 'Doğum Tarihi',
+                      prefixIcon: Icon(
+                        Icons.calendar_today,
+                      ),
+                      contentPadding: EdgeInsets.only(bottom: -35),
+                    ),
+                    onTap: () {
+                      showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1950),
+                        lastDate: DateTime.now(),
+                        builder: (BuildContext context, Widget? child) {
+                          return Theme(
+                            data: ThemeData.light().copyWith(
+                              colorScheme: ColorScheme.light(
+                                  primary: ProjectColors.DarkBlue),
+                              buttonTheme: ButtonThemeData(
+                                  textTheme: ButtonTextTheme.primary),
+                            ),
+                            child: child!,
+                          );
+                        },
+                      ).then(
+                        (selectedDate) {
+                          if (selectedDate != null) {
+                            setState(
+                              () {
+                                _birthdateController.text =
+                                    '${selectedDate.year}-${selectedDate.month.toString().padLeft(2, '0')}';
+                              },
+                            );
+                          }
+                        },
+                      );
+                    },
+                  ),
+                ),
+                // Doğum Tarihi Seçimi Bitiş
+
                 // Cinsiyet, Şehir ve Doğum Tarihi Seçimi Bitiş
 // İnputlar Bitiş
                 sizedBoxCreator(context, 0.05),
 // Kayıt Ol Butonu Başlangıç
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ProjectColors.DarkMainColor,
+                    backgroundColor: ProjectColors.DarkBlue,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 50),
                     elevation: 4.0,
-                    shadowColor: ProjectColors.DarkMainColor.withOpacity(0.4),
+                    shadowColor: ProjectColors.DarkBlue.withOpacity(0.4),
                   ),
                   onPressed: () {
                     inputControls(context);
@@ -302,7 +304,7 @@ class _registerPageState extends State<registerPage> {
                     await _googleGetInfo();
                   },
                   child: Container(
-                    color: ProjectColors.DarkMainColor,
+                    color: ProjectColors.DarkBlue,
                     child: Padding(
                       padding: ProjectPaddings().a5,
                       child: Row(
@@ -311,11 +313,11 @@ class _registerPageState extends State<registerPage> {
                           Container(
                             color: ProjectColors.White,
                             child: Padding(
-                              padding: ProjectPaddings().a10,
+                              padding: ProjectPaddings().a5,
                               child: Image.asset(
                                 'assets/images/google_icon.png',
-                                width: 20,
-                                height: 20,
+                                width: 15,
+                                height: 15,
                               ),
                             ),
                           ),
@@ -327,7 +329,7 @@ class _registerPageState extends State<registerPage> {
                               color: ProjectColors.White,
                             ),
                           ),
-                          sizedBoxCreator(context, 0, width: 10),
+                          sizedBoxCreator(context, 0, width: 5),
                         ],
                       ),
                     ),

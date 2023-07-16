@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: Colors.black),
       ),
-      home: const homeRouterPage(),
+      home: const loginPage(),
     );
   }
 }

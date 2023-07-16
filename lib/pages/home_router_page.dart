@@ -1,6 +1,7 @@
 import 'package:comeon/core/project_utilitys.dart';
 import 'package:comeon/pages/community.dart';
 import 'package:comeon/pages/create_post.dart';
+import 'package:comeon/pages/events.dart';
 import 'package:comeon/pages/home.dart';
 import 'package:comeon/pages/my_posts.dart';
 import 'package:comeon/pages/profile.dart';
@@ -16,7 +17,7 @@ class homeRouterPage extends StatefulWidget {
 class _homeRouterPageState extends State<homeRouterPage> {
   List pages = [
     MyPosts(),
-    community(),
+    events(),
     homePage(),
     createPost(),
     profilePage(),
@@ -31,11 +32,10 @@ class _homeRouterPageState extends State<homeRouterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      body: pages[currentIndex],
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: ProjectColors.bottomBg,
+        backgroundColor: ProjectColors.DarkBlue,
         onTap: onTap,
         currentIndex: currentIndex,
         selectedItemColor: ProjectColors.White,

@@ -1,10 +1,9 @@
 import 'package:comeon/core/project_utilitys.dart';
-import 'package:comeon/pages/home_router_page.dart';
 import 'package:comeon/pages/register_page.dart';
+import 'package:comeon/pages/visiter_home_page.dart';
 import 'package:comeon/service/auth.dart';
 import 'package:flutter/material.dart';
 import '../core/project_classes.dart';
-import 'create_post.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -20,7 +19,7 @@ class _loginPageState extends State<loginPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(250, 255, 255, 255),
+      backgroundColor: ProjectColors.Bgcolor,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -33,8 +32,16 @@ class _loginPageState extends State<loginPage> {
                   width: size.width * .6,
                   child: Image.asset('assets/images/logo_name.png'),
                 ),
+                const Text(
+                  'MEETIME',
+                  style: TextStyle(
+                      color: Color(0xFF0B4C97),
+                      fontSize: 45,
+                      fontFamily: 'Monsterrat',
+                      fontWeight: FontWeight.w600),
+                ),
                 // Logo Bitiş
-                sizedBoxCreator(context, 0.1),
+                sizedBoxCreator(context, 0.05),
                 // Logo Altındaki Yazı Başlangıç
                 Text(
                   'Hesabına erişebilmek için lütfen mail ve şifreni gir',
@@ -58,30 +65,19 @@ class _loginPageState extends State<loginPage> {
                     inputName: 'Şifre',
                     iconName: Icons.lock_open_outlined,
                     sifreGizle: true),
-                // Şifre İnput Bitiş
-
-                // Şifremi Unuttum Başlangıç
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(0, 10.0, 20.0, 15.0),
-                //   child: Container(
-                //     width: size.width * .9,
-                //     child: Text('Şifremi Unuttum', textAlign: TextAlign.end),
-                //   ),
-                // ),
-                // Şifremi Unuttum Bitiş
 
                 sizedBoxCreator(context, 0.02),
 // Giriş Butonu Başlangıç
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ProjectColors.DarkMainColor,
+                    backgroundColor: ProjectColors.DarkBlue,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 50),
                     elevation: 4.0,
-                    shadowColor: ProjectColors.DarkMainColor.withOpacity(0.4),
+                    shadowColor: ProjectColors.DarkBlue.withOpacity(0.4),
                   ),
                   onPressed: () {
                     if (_emailController.text == '' ||
@@ -96,12 +92,6 @@ class _loginPageState extends State<loginPage> {
                         email: _emailController.text,
                         password: _passwordController.text,
                       );
-                      Navigator.push(
-                        context,
-                        sayfaDegistir(
-                            builder: (context) => const createPost(),
-                            beginOffset: 3.0),
-                      );
                     }
                   },
                   child: Text(
@@ -114,7 +104,36 @@ class _loginPageState extends State<loginPage> {
                   ),
                 ),
 // Giriş Butonu Bitiş
-                sizedBoxCreator(context, 0.05),
+// Ziyaretçi Girişi Başlangıç
+                sizedBoxCreator(context, 0.025),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ProjectColors.DarkBlue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 25),
+                    elevation: 4.0,
+                    shadowColor: ProjectColors.DarkMainColor.withOpacity(0.4),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      sayfaDegistir(
+                        builder: (context) => const visiterHomePage(),
+                        beginOffset: 3.0,
+                      ),
+                    );
+                  },
+                  child: const textCreater(
+                    text: 'Ziyaretçi Girişi',
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+// Ziyaretçi Girişi Bitiş
+                sizedBoxCreator(context, 0.025),
 // Kayıt Ol Yazısı Başlangıç
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -126,14 +145,15 @@ class _loginPageState extends State<loginPage> {
                         Navigator.push(
                           context,
                           sayfaDegistir(
-                              builder: (context) => registerPage(),
-                              beginOffset: 3.0),
+                            builder: (context) => registerPage(),
+                            beginOffset: 3.0,
+                          ),
                         );
                       },
                       child: Text(
                         'Kayıt Ol',
                         style: TextStyle(
-                          color: ProjectColors.DarkMainColor,
+                          color: ProjectColors.DarkBlue,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -142,18 +162,7 @@ class _loginPageState extends State<loginPage> {
                   ],
                 ),
 // Kayıt Ol Yazısı Bitiş
-                SizedBox(height: 2),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      sayfaDegistir(
-                          builder: (context) => const homeRouterPage(),
-                          beginOffset: 3.0),
-                    );
-                  },
-                  child: Text('Ana Sayfaları Gör'),
-                ),
+                sizedBoxCreator(context, 0.025),
               ],
             ),
           ),
